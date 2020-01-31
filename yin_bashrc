@@ -72,4 +72,15 @@ tar -xf  $1;
 
 
 
+update_yin_github() {
+for i1 in ~/yin_github/*/
+do
+echo "==>  git pull $i1"
+cd $i1
+git pull
+cd ..
+done
+}
+
+
 
