@@ -8,7 +8,7 @@
 #=========================
 
 
-alias ll='ls -lsh --color=tty'
+alias ll='ls -lshG'
 
 alias deneb1='ssh yin@deneb1.epfl.ch'
 alias deneb2='ssh yin@deneb2.epfl.ch'
