@@ -37,14 +37,13 @@ PATH+=":$d"
 unset d
 
 
-for d in ~/yin_github/*_scripts/*/  
+for d in ~/yin_github/*_utils/*/  
 do
     PATH+=":$d"
 done
 unset d
 
 
-#echo $PATH
 export PATH
 
 
@@ -54,7 +53,6 @@ export PATH
 #=========================
 
 
-# create .tar.xz 
 mktar() {
 local dirn=$1;
 dirn=${dirn%/};
@@ -63,7 +61,6 @@ tar -cJf  $dirn.tar.xz  $dirn;
 }
 
 
-# extra .tar.*
 untar() {
 echo "==>  uncompressing $1";
 tar -xf  $1;
