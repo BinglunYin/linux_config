@@ -1,6 +1,6 @@
 
 # run the following command 
-# echo 'source  ~/yin_github/linux_config/yin_bashrc' >> ~/.bashrc   
+# $ echo 'source  ~/yin_github/linux_config/yin_bashrc' >> ~/.bashrc   
 
 
 #=========================
@@ -49,8 +49,8 @@ done
 for d in ~/yin_github/*_utils/*/  
 do
     PATH+=":$d"
+    unset d
 done
-unset d
 
 
 export PATH
