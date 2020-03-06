@@ -32,9 +32,18 @@ alias yhq='squeue -u yin'
 # PATH
 #=========================
 
-d=~/softwares/bin_shortcut
-PATH+=":$d"
 unset d
+
+declare -a arr=(
+"~/opt/bin"
+)
+
+for d in "${arr[@]}"
+do
+    PATH+=":$d"
+    unset d
+done
+
 
 
 for d in ~/yin_github/*_utils/*/  
