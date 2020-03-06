@@ -21,6 +21,9 @@ $ make install
 $ cd ~/opt/bin
 $ ln -s ~/opt/python-3.8.2/bin/python3  python3
 $ ln -s ~/opt/python-3.8.2/bin/pip3  pip3
+
+$ pip3 install --upgrade  numpy  scipy  sympy  matplotlib
+
 ```
 
 
