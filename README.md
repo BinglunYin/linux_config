@@ -1,10 +1,10 @@
 # linux_config
 
 
-a few notes:
+# a few notes:
 
 
-# install python3 locally
+## install python3 locally
 
 ```
 $ cd ~
@@ -22,6 +22,5 @@ $ cd ~/opt/bin
 $ ln -s ~/opt/python-3.8.2/bin/python3  python3
 $ ln -s ~/opt/python-3.8.2/bin/pip3  pip3
 ```
-
 
 
