@@ -97,7 +97,7 @@ yin_backup(){
 declare -a srcdir=(
 "~/yin_archive"
 )
-bakdir=~/work/yin_backup_in_work
+bakdir=/work/lammm/yin/yin_backup_in_work
 for i1 in "${srcdir[@]}" ; do
     if [ -d "$i1" ]  &&  [ -d "$bakdir" ] ;  then
         echo -e "\n==> sync from '$i1' to '$bakdir' "
