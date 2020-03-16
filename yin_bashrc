@@ -98,7 +98,6 @@ declare -a srcdir=(
 )
 bakdir=/work/lammm/yin/yin_backup_in_work
 for i1 in "${srcdir[@]}" ; do
-    echo $i1  $bakdir
     if [ -d "$i1" ]  &&  [ -d "$bakdir" ] ;  then
         echo -e "\n==> sync from '$i1' to '$bakdir' "
         rsync -avh  --progress  $i1  $bakdir
