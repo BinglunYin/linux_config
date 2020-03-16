@@ -65,13 +65,13 @@ export PATH
 mktar() {
 local dirn=$1;
 dirn=${dirn%/};
-echo "==>  compressing $dirn";
+echo "==> compressing $dirn";
 tar -cJf  $dirn.tar.xz  $dirn;
 }
 
 
 untar() {
-echo "==>  uncompressing $1";
+echo "==> uncompressing $1";
 tar -xf  $1;
 }
 
@@ -80,12 +80,11 @@ tar -xf  $1;
 
 yin_update_yin_github() {
 d=`pwd`
-for i1 in ~/yin_github/*/
-do
-echo "==>  git pull $i1"
-cd $i1
-git pull
-cd ..
+for i1 in ~/yin_github/*/ ; do
+    echo "==>  git pull $i1"
+    cd $i1
+    git pull
+    cd ..
 done
 cd $d
 }
@@ -95,13 +94,14 @@ cd $d
 
 yin_backup(){
 declare -a srcdir=(
-"~/yin_archive"
+"/home/yin/yin_archive"    # no / in the end; no ~ in the path; 
 )
 bakdir=/work/lammm/yin/yin_backup_in_work
 for i1 in "${srcdir[@]}" ; do
+    echo $i1  $bakdir
     if [ -d "$i1" ]  &&  [ -d "$bakdir" ] ;  then
         echo -e "\n==> sync from '$i1' to '$bakdir' "
-        rsync -avh  --progress  $i1  $bakdir
+        rsync -avh  --info=progress2  $i1  $bakdir
     fi
 done
 }
