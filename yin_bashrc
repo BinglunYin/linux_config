@@ -81,9 +81,10 @@ tar -xf  $1;
 yin_update_yin_github() {
 d=`pwd`
 for i1 in ~/yin_github/*/ ; do
-    echo "==> git pull $i1"
+    echo -e "\n==> git pull $i1"
     cd $i1
     git pull
+    git status    
     cd ..
 done
 cd $d
