@@ -17,14 +17,12 @@ alias bella='ssh yin@bellatrix.epfl.ch'
 alias fidis='ssh yin@fidis.epfl.ch'
 alias helve='ssh yin@helvetios.epfl.ch'
 
-#alias lammm='ssh yin@128.178.96.59'
 alias lammm='ssh yin@stidhcp-4-059.epfl.ch'
 
-alias daint='ssh daint'
+alias ela='ssh byin@ela.cscs.ch'
 
-#alias matlab='matlab -noopengl'
 
-alias yhq='squeue -u yin'
+alias yhq='squeue -u $USER'
 
 
 
@@ -67,12 +65,14 @@ local dirn=$1;
 dirn=${dirn%/};
 echo "==> compressing $dirn";
 tar -cJf  $dirn.tar.xz  $dirn;
+echo "==> done!"
 }
 
 
 untar() {
 echo "==> uncompressing $1";
 tar -xf  $1;
+echo "==> done!"
 }
 
 
