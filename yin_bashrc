@@ -1,7 +1,6 @@
 
 # run the following command 
 # $ echo 'source  ~/yin_github/linux_config/yin_bashrc' >> ~/.bashrc   
-# $ echo 'export  my_slurm_partition=normal'             >> ~/.bashrc 
 
 
 
@@ -69,12 +68,40 @@ export PATH
 
 
 mktar() {
-local dirn=$1;
-dirn=${dirn%/};
-echo "==> compressing $dirn";
-tar -cJf  $dirn.tar.xz  $dirn;
+if [ $# == 2 ]; then
+    local dirn=$2
+    dirn=${dirn%/}
+    echo "==> compressing $dirn"
+    
+    case "$1" in
+        -xz)
+            tar -cJf  $dirn.tar.xz  $dirn
+            ;;
+        -gz)
+            tar -czf  $dirn.tar.gz  $dirn
+            ;;
+        -tar)
+            tar -cf   $dirn.tar     $dirn
+            ;;
+         *)
+            echo "Wrong flag. ABORT!"
+            return 0
+            ;;
+    esac
+
+elif [ $# == 1 ]; then
+    local dirn=$1
+    dirn=${dirn%/}
+    echo "==> compressing $dirn"
+    tar -cJf  $dirn.tar.xz  $dirn
+else
+    echo "==> Wrong input. Abort!"
+    return 0 
+fi
 echo "==> done!"
 }
+
+
 
 
 untar() {
