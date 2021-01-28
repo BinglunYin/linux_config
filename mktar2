@@ -20,17 +20,17 @@ else
     
     case "$1" in
         -xz)
-            tar -cJvf  $dirn.tar.xz  $dirn  >>  $logfile
+            tar -cJf  $dirn.tar.xz  $dirn  >>  $logfile
             ;;
         -gz)
-            tar -czvf  $dirn.tar.gz  $dirn  >>  $logfile
+            tar -czf  $dirn.tar.gz  $dirn  >>  $logfile
             ;;
         -tar)
-            tar -cvf   $dirn.tar     $dirn  >>  $logfile
+            tar -cf   $dirn.tar     $dirn  >>  $logfile
             ;;
          *)
             echo "Wrong flag. ABORT!"
-            return 0
+            exit
             ;;
     esac
 fi
