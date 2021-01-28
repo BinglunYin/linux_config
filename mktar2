@@ -21,12 +21,15 @@ else
     case "$1" in
         -xz)
             tar -cJf  $dirn.tar.xz  $dirn  >>  $logfile
+            rtrn_code=$?
             ;;
         -gz)
             tar -czf  $dirn.tar.gz  $dirn  >>  $logfile
+            rtrn_code=$?
             ;;
         -tar)
             tar -cf   $dirn.tar     $dirn  >>  $logfile
+            rtrn_code=$?            
             ;;
          *)
             echo "Wrong flag. ABORT!"
@@ -36,8 +39,14 @@ else
 fi
 
 
-echo -e "\n==> done!" >> $logfile
-date                  >> $logfile
+
+if [ $rtrn_code == 0 ]; then
+    echo -e "\n==> done!" >> $logfile
+    date                  >> $logfile
+else
+    echo -e "\n==> tar fails. Abort!" >> $logfile
+    exit
+fi
 
 
 
