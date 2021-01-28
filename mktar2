@@ -12,19 +12,21 @@ if [ $# != 2 ]; then
 else
     dirn=$2
     dirn=${dirn%/}
+
+    logfile=$dirn.tar.log
     
-    date > $dirn.log
-    echo -e "==> compressing $dirn\n" >> $dirn.log
+    date > $logfile
+    echo -e "==> compressing $dirn\n" >> $logfile
     
     case "$1" in
         -xz)
-            tar -cJvf  $dirn.tar.xz  $dirn  >>  $dirn.log
+            tar -cJvf  $dirn.tar.xz  $dirn  >>  $logfile
             ;;
         -gz)
-            tar -czvf  $dirn.tar.gz  $dirn  >>  $dirn.log
+            tar -czvf  $dirn.tar.gz  $dirn  >>  $logfile
             ;;
         -tar)
-            tar -cvf   $dirn.tar     $dirn  >>  $dirn.log
+            tar -cvf   $dirn.tar     $dirn  >>  $logfile
             ;;
          *)
             echo "Wrong flag. ABORT!"
@@ -34,8 +36,8 @@ else
 fi
 
 
-echo -e "\n==> done!" >> $dirn.log
-date                  >> $dirn.log
+echo -e "\n==> done!" >> $logfile
+date                  >> $logfile
 
 
 
