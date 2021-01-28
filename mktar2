@@ -1,0 +1,42 @@
+#!/bin/bash
+# B. Yin
+
+# nohup  ~/yin_github/linux_config/mktar2  -gz  aaa/  &  
+
+
+
+if [ $# != 2 ]; then
+    echo "==> Wrong input. Abort!"
+    exit
+
+else
+    dirn=$2
+    dirn=${dirn%/}
+    
+    date > $dirn.log
+    echo -e "==> compressing $dirn\n" >> $dirn.log
+    
+    case "$1" in
+        -xz)
+            tar -cJvf  $dirn.tar.xz  $dirn  >>  $dirn.log
+            ;;
+        -gz)
+            tar -czvf  $dirn.tar.gz  $dirn  >>  $dirn.log
+            ;;
+        -tar)
+            tar -cvf   $dirn.tar     $dirn  >>  $dirn.log
+            ;;
+         *)
+            echo "Wrong flag. ABORT!"
+            return 0
+            ;;
+    esac
+fi
+
+
+echo -e "\n==> done!" >> $dirn.log
+date                  >> $dirn.log
+
+
+
+

@@ -58,6 +58,9 @@ do
 done
 
 
+PATH+=":~/yin_github/linux_config/"
+
+
 export PATH
 
 
