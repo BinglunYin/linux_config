@@ -44,6 +44,7 @@ if [ $rtrn_code == 0 ]; then
     echo -e "\n==> done!" >> $logfile
     date                  >> $logfile
 else
+    echo 'return code:' $rtrn_code
     echo -e "\n==> tar fails. Abort!" >> $logfile
     exit
 fi
