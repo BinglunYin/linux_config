@@ -40,7 +40,9 @@ fi
 
 
 
-echo 'return code of tar:' $rtrn_code
+date >> $logfile
+echo "return code of tar:" $rtrn_code >> $logfile 
+
 if [ $rtrn_code == 0 ]; then
     echo -e "\n==> done!" >> $logfile
     date                  >> $logfile
