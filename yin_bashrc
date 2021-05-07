@@ -29,6 +29,8 @@ alias lammm='ssh yin@stidhcp-4-059.epfl.ch'
 alias ela='ssh byin@ela.cscs.ch'
 alias daint='ssh daint'
 
+alias gauss='ssh binglunyin@144.214.73.39'
+
 alias yhq='squeue -u $USER'
 
 
