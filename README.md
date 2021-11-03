@@ -21,9 +21,6 @@ $ make install
 $ cd ~/opt/bin
 $ ln -s ~/opt/python-3.6.5/bin/python3  python3
 $ ln -s ~/opt/python-3.6.5/bin/pip3  pip3
-
-$ pip3 install --upgrade  numpy  scipy  sympy  matplotlib
-
 ```
 
 
@@ -32,6 +29,24 @@ $ pip3 install --upgrade  numpy  scipy  sympy  matplotlib
 ModuleNotFoundError: No module named '_ctypes'
 ```
 
+
+
+
+## pip3 install
+```
+pip3 install --user --upgrade  numpy  scipy  sympy  matplotlib
+```
+
+install myalloy_pkg from Github:     
+
+```
+pip3 install --user --upgrade    git+https://github.com/BinglunYin/myalloy_package.git    
+```
+or from a local folder:     
+```
+pip3 install --user -e   .  
+
+```
 
 
 
