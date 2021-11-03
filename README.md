@@ -34,18 +34,17 @@ ModuleNotFoundError: No module named '_ctypes'
 
 ## pip3 install
 ```
-pip3 install --user --upgrade  numpy  scipy  sympy  matplotlib
+pip3 install --user --upgrade  numpy  scipy  sympy  matplotlib    
 ```
 
 install myalloy_pkg from Github:     
 
 ```
-pip3 install --user --upgrade    git+https://github.com/BinglunYin/myalloy_package.git    
+pip3 install --user --upgrade  git+https://github.com/BinglunYin/myalloy_package.git    
 ```
 or from a local folder:     
 ```
-pip3 install --user -e   .  
-
+pip3 install --user -e  .  
 ```
 
 
