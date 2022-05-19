@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+hname=`hostname`
+
+cpu_us=`top -b -n 1 | grep "%Cpu(s):" | awk '{printf "%6.1f", $2}'`
+
+
+temp0=`sensors | grep Package | grep "id 0"  | awk '{printf "%6.1f", $4}'`
+temp1=`sensors | grep Package | grep "id 1"  | awk '{printf "%6.1f", $4}'`
+
+
+freq_avg=`cat /proc/cpuinfo | grep "cpu MHz" | awk '{sum += $4} END {printf "%4.0f", sum/NR}'`
+ncore=`   cat /proc/cpuinfo | grep "cpu MHz" | awk '{sum += $4} END {printf "%6.1f", NR}'`
+
+ncore_run=`echo "scale=16; $ncore*$cpu_us/100.0" | bc | awk '{printf "%6.1f", $1}'`
+
+
+if  [ $(echo "$cpu_us > 1.0" | bc) = 1 ];  then
+    freq_eff=`echo "scale=16; ( $freq_avg*100.0 - 1000.0*(100.0-$cpu_us) )/$cpu_us" | bc | awk '{printf "%4.0f", $1}'`
+else
+    freq_eff=$freq_avg
+fi
+
+
+echo " $hname    $cpu_us     $ncore_run       $temp0  $temp1        $freq_avg       $freq_eff"
+exit
+
+
+
+
+
+
+
+
