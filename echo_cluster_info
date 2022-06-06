@@ -1,19 +1,18 @@
 #!/bin/bash
 
 
-echo "=============================================================================="
+echo "=============================================================================="     
 echo " hostname    %CPU.us    effective    package temp (C)    freq (MHz)           "
 echo "                        running      ----------------    -------------------- "
-echo "                        cores        cpu0    cpu1        average    effective "
+echo "                        cores        cpu0    cpu1        average    effective " 
 echo "------------------------------------------------------------------------------"
 
-for i in `seq 1 7`; do
+for i in `seq 8 -1 1`; do
     ssh node0$i "echo_node_info"
 done
-
+ 
 echo "=============================================================================="
 echo -e "\n"
-
 
 
 

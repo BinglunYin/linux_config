@@ -19,17 +19,12 @@ ncore_run=`echo "scale=16; $ncore*$cpu_us/100.0" | bc | awk '{printf "%6.1f", $1
 if  [ $(echo "$cpu_us > 1.0" | bc) = 1 ];  then
     freq_eff=`echo "scale=16; ( $freq_avg*100.0 - 1000.0*(100.0-$cpu_us) )/$cpu_us" | bc | awk '{printf "%4.0f", $1}'`
 else
-    freq_eff=$freq_avg
+    freq_eff=$freq_avg 
 fi
 
 
-echo " $hname    $cpu_us     $ncore_run       $temp0  $temp1        $freq_avg       $freq_eff"
-exit
-
-
-
-
-
+echo " $hname    $cpu_us     $ncore_run       $temp0  $temp1        $freq_avg       $freq_eff" 
+exit 
 
 
 
