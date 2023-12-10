@@ -49,6 +49,7 @@ if [ $rtrn_code == 0 ]; then
 
     echo -e "\n\n\n$ ls -alsh $dirn " >> $logfile
     ls -alsh $dirn                    >> $logfile
+    echo    " "                       >> $logfile 
 
 else
     echo -e "\n==> tar fails. Abort!" >> $logfile
